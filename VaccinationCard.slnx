@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="VaccinationCard.API/VaccinationCard.API.csproj" />
+  <Project Path="VaccinationCard.Application/VaccinationCard.Application.csproj" />
+  <Project Path="VaccinationCard.Domain/VaccinationCard.Domain.csproj" />
+  <Project Path="VaccinationCard.Infrastructure/VaccinationCard.Infrastructure.csproj" />
+  <Project Path="VaccinationCard.Test/VaccinationCard.Test.csproj" />
+</Solution>
