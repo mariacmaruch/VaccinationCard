@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using VaccinationCard.Application.Commands.CreateVacina;
 using VaccinationCard.Application.Interfaces;
 using VaccinationCard.Domain.Interfaces;
 using VaccinationCard.Infrastructure.Authentication;
@@ -17,6 +18,8 @@ namespace VaccinationCard.Infrastructure
 
             // Repositories
             services.AddScoped<IContaRepository, ContaRepository>();
+            services.AddScoped<IVacinacaoRepository, VacinacaoRepository>();
+            services.AddScoped<IVacinaRepository, VacinaRepository>();
 
             // Services
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
