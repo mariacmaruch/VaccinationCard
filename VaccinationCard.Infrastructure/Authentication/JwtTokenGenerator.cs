@@ -16,7 +16,7 @@ namespace VaccinationCard.Infrastructure.Authentication
             _configuration = configuration;
         }
 
-        public string GenerateToken(Guid idenficador, string userName)
+        public string GenerateToken(Guid identificador, string userName)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
 
@@ -24,7 +24,7 @@ namespace VaccinationCard.Infrastructure.Authentication
 
             var claims = new[]
             {
-                new Claim("sub", idenficador.ToString()),           
+                new Claim("sub", identificador.ToString()),           
                 new Claim(ClaimTypes.NameIdentifier, userName)
             };
 

@@ -1,9 +1,9 @@
 ﻿namespace VaccinationCard.Domain.Entities
 {
-    public class Conta
+    public class Conta : BaseEntidade
     {
-        public int Id { get; set; }
-        public Guid Identificador { get; set; }
-        public string Name { get; set; }
+        public string CpfCnpj { get; set; }
+        public string Nome { get; set; }
+        public virtual ICollection<Vacinacao> Vacinacoes { get; set; }
     }
 }

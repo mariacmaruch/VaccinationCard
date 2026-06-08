@@ -10,5 +10,8 @@ namespace VaccinationCard.Infrastructure.Persistence
         }
 
         public DbSet<Conta> Conta { get; set; }
+        public DbSet<Vacina> Vacina { get; set; }
+        public DbSet<Vacinacao> Vacinacao { get; set; }
+
     }
 }
