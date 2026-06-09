@@ -28,7 +28,7 @@ namespace VaccinationCard.Application.Commands.Login
                 if (user is null)
                     return Result<LoginResponse>.Fail("Usuário não encontrado.");
 
-                var token = _jwtTokenGenerator.GenerateToken(user.Identificador,user.Nome);
+                var token = _jwtTokenGenerator.GenerateToken(user.Identificador,user.Nome, user.Id);
 
                 return Result<LoginResponse>.Ok(new LoginResponse(token));
             }

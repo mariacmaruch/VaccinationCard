@@ -32,6 +32,7 @@ namespace VaccinationCard.Application.Commands.GetCartaoVacinacao
                     conta.Nome,
                     vacinacoes.Select(x =>
                         new CartaoVacinacaoItemResponse(
+                            x.Id,
                             x.Vacina.Nome,
                             x.Dose,
                             x.DataAplicacao

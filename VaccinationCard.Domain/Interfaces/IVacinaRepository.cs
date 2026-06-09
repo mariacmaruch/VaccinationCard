@@ -7,5 +7,6 @@ namespace VaccinationCard.Domain.Interfaces
         Task<Vacina> Create(Vacina vacina);
         Task<Vacina> GetByIdAsync(int id);
         Task<Vacina> GetByNomeAsync(string nome);
+        Task<List<Vacina>> GetAll();
     }
 }

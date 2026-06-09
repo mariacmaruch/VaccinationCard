@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VaccinationCard.Application.Commands.CreateVacina;
+using VaccinationCard.Application.Commands.GetAllVacinas;
 
 namespace VaccinationCard.API.Controllers
 {
@@ -21,6 +22,14 @@ namespace VaccinationCard.API.Controllers
         public async Task<IActionResult> CreateVacina(CreateVacinaCommand command)
         {
             var result = await _mediator.Send(command);
+
+            return result.Success ? Ok(result.Data) : BadRequest(result.Error);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllVacinas()
+        {
+            var result = await _mediator.Send(new GetAllVacinasCommand());
 
             return result.Success ? Ok(result.Data) : BadRequest(result.Error);
         }

@@ -25,6 +25,11 @@ namespace VaccinationCard.Infrastructure.Repositories
             return vacina;
         }
 
+        public async Task<List<Vacina>> GetAll()
+        {
+            return await _context.Vacina.AsNoTracking().ToListAsync();
+        }
+
         public async Task<Vacina> GetByIdAsync(int id)
         {
             return await _context.Vacina.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
