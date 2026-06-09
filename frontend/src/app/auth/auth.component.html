@@ -1,0 +1,62 @@
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="12" fill="#EEF5FF"/>
+        <path d="M24 10C16.27 10 10 16.27 10 24s6.27 14 14 14 14-6.27 14-14S31.73 10 24 10z" fill="#1A7CFF" opacity=".2"/>
+        <path d="M22 28l-4-4 1.4-1.4L22 25.2l6.6-6.6L30 20l-8 8z" fill="#1A7CFF"/>
+        <path d="M31 17l2 2-1 1-2-2 1-1z" fill="#00C896"/>
+        <circle cx="33" cy="15" r="2" fill="#00C896"/>
+      </svg>
+      <h1>Cartão de Vacinação</h1>
+      <p>Sistema de registro e consulta de vacinas</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab" [class.active]="tab === 'login'" (click)="tab='login'; msg=null">Entrar</button>
+      <button class="auth-tab" [class.active]="tab === 'signup'" (click)="tab='signup'; msg=null">Criar conta</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div *ngIf="tab === 'login'">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nome de usuário</label>
+          <input type="text" [(ngModel)]="loginForm.userName" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>CPF / CNPJ</label>
+          <input type="text" [(ngModel)]="loginForm.cpfCnpj" placeholder="000.000.000-00" />
+        </div>
+      </div>
+      <div class="alert alert-error" *ngIf="msg && !msgOk">{{ msg }}</div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-full" (click)="doLogin()" [disabled]="loading">
+          <span class="spinner" *ngIf="loading"></span>
+          <span *ngIf="!loading">Entrar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SIGNUP -->
+    <div *ngIf="tab === 'signup'">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nome de usuário</label>
+          <input type="text" [(ngModel)]="signupForm.userName" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>CPF / CNPJ</label>
+          <input type="text" [(ngModel)]="signupForm.cpfCnpj" placeholder="000.000.000-00" />
+        </div>
+      </div>
+      <div class="alert" *ngIf="msg" [class.alert-success]="msgOk" [class.alert-error]="!msgOk">{{ msg }}</div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-full" (click)="doSignup()" [disabled]="loading">
+          <span class="spinner" *ngIf="loading"></span>
+          <span *ngIf="!loading">Criar conta</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
