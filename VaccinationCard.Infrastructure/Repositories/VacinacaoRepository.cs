@@ -9,6 +9,11 @@ namespace VaccinationCard.Infrastructure.Repositories
     {
         private readonly AppDbContext _context;
 
+        public VacinacaoRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public async Task<Vacinacao> Create(Vacinacao vacinacao)
         {
             vacinacao.Criado ??= DateTime.UtcNow;

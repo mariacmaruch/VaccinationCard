@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VaccinationCard.Application.Commands.Login;
 using VaccinationCard.Application.Commands.RemoveConta;
@@ -11,6 +12,11 @@ namespace VaccinationCard.API.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IMediator _mediator;
+
+        public LoginController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpCommand command)
@@ -25,11 +31,12 @@ namespace VaccinationCard.API.Controllers
         {
             var result = await _mediator.Send(command);
 
-            return result.Success ? Ok(result.Data) : Unauthorized(result.Error);
+            return result.Success ? Ok(result.Data) : BadRequest(result.Error);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> RemoveConta(RemoveContaCommand command)
+        [Authorize]
+        public async Task<ActionResult> RemoveConta([FromQuery] RemoveContaCommand command)
         {
             var result = await _mediator.Send(command);
 
