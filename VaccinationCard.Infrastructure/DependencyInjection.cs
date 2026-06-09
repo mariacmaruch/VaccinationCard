@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VaccinationCard.Application.Commands.CreateVacina;
 using VaccinationCard.Application.Interfaces;
 using VaccinationCard.Domain.Interfaces;
 using VaccinationCard.Infrastructure.Authentication;

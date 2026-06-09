@@ -13,5 +13,11 @@ namespace VaccinationCard.Infrastructure.Persistence
         public DbSet<Vacina> Vacina { get; set; }
         public DbSet<Vacinacao> Vacinacao { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
