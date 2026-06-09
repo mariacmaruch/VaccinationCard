@@ -15,7 +15,7 @@ Sistema de registro e consulta de vacinas com frontend Angular e backend C#.
 
 # 2. Configure a connection string no appsettings.json
 "ConnectionStrings": {
-  "DefaultConnection": "sua_connection_string_aqui"
+  "DefaultConnection": "exemplo_connection_string"
 }
 
 # 3. Aplique as migrations
