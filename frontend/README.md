@@ -1,4 +1,4 @@
-# Cartão de Vacinação — Angular 17 !
+# Cartão de Vacinação — Angular 17 
 
 Projeto Angular standalone (sem NgModules) convertido a partir do HTML/AngularJS original.
 
